@@ -107,11 +107,11 @@ elseif (HAS_ANY AND HAS_STRING_VIEW AND HAS_COROUTINE)
 else ()
     set(DROGON_CXX_STANDARD 17)
 endif ()
-#if(USE_SUBMODULE)
-#    target_include_directories(
-#            ${PROJECT_NAME}
-#            PUBLIC
-#            $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/trantor>)
+if(USE_SUBMODULE)
+    target_include_directories(
+            ${PROJECT_NAME}
+            PUBLIC
+            $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/trantor>)
 #endif()
 target_include_directories(
     ${PROJECT_NAME}
