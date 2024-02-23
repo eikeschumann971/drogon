@@ -112,7 +112,7 @@ if(USE_SUBMODULE)
             ${PROJECT_NAME}
             PUBLIC
             $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/trantor>)
-#endif()
+endif()
 target_include_directories(
     ${PROJECT_NAME}
     PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/lib/inc>
