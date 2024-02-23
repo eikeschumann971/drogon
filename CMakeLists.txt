@@ -107,12 +107,12 @@ elseif (HAS_ANY AND HAS_STRING_VIEW AND HAS_COROUTINE)
 else ()
     set(DROGON_CXX_STANDARD 17)
 endif ()
-if(USE_SUBMODULE)
-    target_include_directories(
-            ${PROJECT_NAME}
-            PUBLIC
-            $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/trantor>)
-endif()
+#if(USE_SUBMODULE)
+#    target_include_directories(
+#            ${PROJECT_NAME}
+#            PUBLIC
+#            $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/trantor>)
+#endif()
 target_include_directories(
     ${PROJECT_NAME}
     PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/lib/inc>
@@ -128,13 +128,13 @@ if (WIN32)
         PRIVATE $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/third_party/mman-win32>)
 endif (WIN32)
 
-if(USE_SUBMODULE)
-add_subdirectory(trantor)
-target_link_libraries(${PROJECT_NAME} PUBLIC trantor)
-else()
-find_package(Trantor CONFIG REQUIRED)
-target_link_libraries(${PROJECT_NAME} PUBLIC Trantor::Trantor)
-endif()
+#if(USE_SUBMODULE)
+#add_subdirectory(trantor)
+#target_link_libraries(${PROJECT_NAME} PUBLIC trantor)
+#else()
+#find_package(Trantor CONFIG REQUIRED)
+#target_link_libraries(${PROJECT_NAME} PUBLIC Trantor::Trantor)
+#endif()
 
 if(${CMAKE_SYSTEM_NAME} STREQUAL "Haiku")
     target_link_libraries(${PROJECT_NAME} PRIVATE network)
